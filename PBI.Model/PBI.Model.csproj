@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PBI.Utils\PBI.Common.csproj" />
+    <ProjectReference Include="..\PBI.Common\PBI.Common.csproj" />
   </ItemGroup>
 
 </Project>
