@@ -14,6 +14,5 @@ namespace PBI.Repository.IRepository
         IQueryable<T> Get(Func<T, bool> predicate);
         int CountAsync();
         IQueryable<T> GetAll();
-        IQueryable<T> GetQueryable(Func<T, bool> predicate);
     }
 }
