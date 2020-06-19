@@ -17,7 +17,7 @@ namespace PBI.Service.Service
 
         public int CountAsync()
         {
-            return Get(r => r.ID > 0).Count();
+            return Get(r => r.LetterId > 0).Count();
         }
 
         public async Task<int> DeleteAsync(Letter item)

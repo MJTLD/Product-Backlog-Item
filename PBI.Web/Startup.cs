@@ -27,7 +27,7 @@ namespace PBI.Web
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; }
         readonly string MyAllowSpecificOrigins = "AllowMyOrigin";
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -71,19 +71,20 @@ namespace PBI.Web
             services.AddMemoryCache();
 
             services.AddMvc(options =>
-            {
-                options.CacheProfiles.Add("DefaultNoCacheProfile", new CacheProfile
                 {
-                    NoStore = true,
-                    Location = ResponseCacheLocation.None
-                });
-                options.Filters.Add(new ResponseCacheAttribute
-                {
-                    CacheProfileName = "DefaultNoCacheProfile"
-                });
-            }).SetCompatibilityVersion(CompatibilityVersion.Latest)
-            .AddNewtonsoftJson(options =>
-                        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+                    options.CacheProfiles.Add("DefaultNoCacheProfile", new CacheProfile
+                    {
+                        NoStore = true,
+                        Location = ResponseCacheLocation.None
+                    });
+                    options.Filters.Add(new ResponseCacheAttribute
+                    {
+                        CacheProfileName = "DefaultNoCacheProfile"
+                    });
+                }).SetCompatibilityVersion(CompatibilityVersion.Latest)
+                .AddNewtonsoftJson(options =>
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
+                .AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
 
             services.AddDistributedMemoryCache();
 

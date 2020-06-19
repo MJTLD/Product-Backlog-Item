@@ -1,0 +1,49 @@
+@{
+    ViewBag.Title = "نامه";
+}
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-6">
+                لیست نامه ها
+            </div>
+            <div class="col-md-6">
+                <a class="btn btn-danger float-left" asp-area="" asp-controller="Letter" asp-action="Create">نامه جدید</a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="letter-table">
+                    <div class="k-rtl">
+                        <div id="report-grid" style="text-align: right"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/kendo/initConfig.js"></script>
+    <script src="~/js/api/letter.js"></script>
+
+    <script type="x/kendo-template" id="page-template-pdf">
+        <div class="" dir="rtl">
+            <div class="">
+                <div style="float: right">Page #: pageNum # of #: totalPages #</div>
+                Multi-page grid with automatic page breaking
+            </div>
+            <div class="watermark">KENDO UI</div>
+            <div class="footer">
+                Page #: pageNum # of #: totalPages #
+            </div>
+        </div>
+    </script>
+    <script id="toolbarTemplate" type="text/x-kendo-template">
+        <a class="k-button" href="\#" onclick="alert('gridState: ' + getCurrentGridFilters());">نوار ابزار سفارشي</a>
+    </script>
+
+}

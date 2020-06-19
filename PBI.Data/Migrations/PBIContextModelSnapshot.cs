@@ -255,7 +255,7 @@ namespace PBI.Data.Migrations
 
             modelBuilder.Entity("PBI.Model.Secretariat.Letter", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("LetterId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -278,7 +278,7 @@ namespace PBI.Data.Migrations
                     b.Property<string>("Subject")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("LetterId");
 
                     b.ToTable("Letter");
                 });

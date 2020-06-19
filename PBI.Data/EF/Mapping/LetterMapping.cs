@@ -9,7 +9,7 @@ namespace PBI.Data.EF.Mapping
     {
         public void Configure(EntityTypeBuilder<Letter> builder)
         {
-            builder.HasKey(r => r.ID);
+            builder.HasKey(r => r.LetterId);
             builder.ToTable("Letter");
         }
     }

@@ -3,53 +3,68 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - PBI.Web</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    
+    <link href="/css/kendo/kendo.common.min.css" rel="stylesheet" type="text/css" />
+    <link href="/css/kendo/kendo.material.min.css" rel="stylesheet" type="text/css"  />
+    <link href="/css/kendo/kendo.rtl.min.css" rel="stylesheet"/>
+    
     <link rel="stylesheet" href="~/css/site.css"  asp-append-version="true"/>
     <style>
         
     </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm 
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm 
                   border-bottom box-shadow mb-3"
-                style="background-color: #3b3c3e !important;">
-            <div class="container" dir="rtl">   
-                <a style="font-size: x-large;" class="navbar-brand" href="#">صدور نامه</a>             
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item ">
-                            <a class="nav-link navbar-collapse" asp-area="" asp-controller="Home" asp-action="Index">صدور نامه</a>
-                        </li>
-                        <div class="vdivider"></div>
-                        <li class="nav-item ">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">لیست نامه ها</a>
-                        </li>                        
-                    </ul>
-                </div>
+         style="background-color: #3b3c3e !important;">
+        <div class="container" dir="rtl">   
+            <a style="font-size: x-large;" class="navbar-brand" href="#">صدور نامه</a>             
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item ">
+                        <a class="nav-link navbar-collapse" asp-area="" asp-controller="Home" asp-action="Index">صدور نامه</a>
+                    </li>
+                    <div class="vdivider"></div>
+                    <li class="nav-item ">
+                        <a class="nav-link" asp-area="" asp-controller="Letter" asp-action="Index">لیست نامه ها</a>
+                    </li>                        
+                </ul>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+        </div>
+    </nav>
+</header>
+<div dir="rtl" style="text-align: right;">
+    @RenderBody()
+</div>
 
-    <footer class="border-top footer text-muted" 
+<footer class="border-top footer text-muted" 
         style="background-color: #3b3c3e;
                 text-align: center;">
-        <div style="color: gray;text-align: center;">
-            تمام حقوق برای شرکت پردازش اطلاعات ریسمان محفوظ است
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @* @RenderSection("Scripts", required: false) *@
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
-}
+    <div style="color: gray;text-align: center;">
+        تمام حقوق برای شرکت پردازش اطلاعات  محفوظ است
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+<script src="~/js/kendo/jszip.min.js" ></script>
+<script src="~/js/kendo/kendo.all.min.js" ></script>
+<script src="~/js/kendo/cultures/kendo.culture.fa-IR.js" asp-append-version="true"></script>
+<script src="~/js/kendo/cultures/kendo.culture.fa.js" asp-append-version="true"></script>
+<script src="~/js/kendo/messages/kendo.messages.en-US.min.js" ></script>
+<script src="~/js/kendo/cultures/moment.min.js" ></script>
+<script src="~/js/kendo/cultures/moment-jalaali.js" ></script>
+<script src="~/js/kendo/messages/kendo.fa-IR.js" asp-append-version="true"></script>
+<script src="~/js/kendo/pako_deflate.min.js" ></script>
+<script src="~/js/PersianDatePicker.min.js"></script>
+
+@RenderSection("Scripts", required: false) 
+@* @section Scripts {
+        @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    }*@
 </body>
 </html>
